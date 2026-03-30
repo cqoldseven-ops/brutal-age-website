@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brutal Age - Unleash Your Inner Warrior</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-orange: #e67e22;
+            --dark-orange: #d35400;
+            --tribal-brown: #5d4037;
+            --stone-gray: #795548;
+            --savanna-gold: #f39c12;
+            --bone-white: #f5f5dc;
+            --blood-red: #c0392b;
+        }
+
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: #1a1208;
+            color: var(--bone-white);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 8px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0.85) 80%, transparent);
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 26px;
+            font-weight: 900;
+            color: var(--savanna-gold);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--bone-white);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-orange);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: auto;
+            padding: 70px 15px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            padding: 20px;
+        }
+
+        /* Hero main container - left videos, right content */
+        .hero-main {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Hero left side - videos (60%) */
+        .hero-left {
+            flex: 0 0 60%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 60%;
+        }
+
+        /* Hero right side - content (35%) */
+        .hero-right {
+            flex: 0 0 35%;
+            min-width: 300px;
+            max-width: 380px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 2px solid var(--primary-orange);
+            box-sizing: border-box;
+            margin-right: 15px;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 64px;
+            font-weight: 900;
+            color: var(--savanna-gold);
+            text-shadow:
+                0 0 20px rgba(243, 156, 18, 0.5),
+                4px 4px 8px rgba(0,0,0,0.8);
+            margin-bottom: 20px;
+            letter-spacing: 4px;
+            line-height: 1.1;
+        }
+
+        /* Hero videos container - vertical stack */
+        .hero-videos {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .hero-videos video {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+            aspect-ratio: 16 / 9;
+            border: 2px solid rgba(243, 156, 18, 0.3);
+            filter: none;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 56px;
+            font-weight: 900;
+            color: var(--savanna-gold);
+            text-shadow:
+                0 0 20px rgba(243, 156, 18, 0.5),
+                4px 4px 8px rgba(0,0,0,0.8);
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--bone-white);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.9;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary-orange), var(--dark-orange));
+            color: white;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow:
+                0 8px 25px rgba(230, 126, 34, 0.4),
+                inset 0 2px 0 rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            border: 3px solid rgba(255,255,255,0.1);
+            white-space: nowrap;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                0 12px 35px rgba(230, 126, 34, 0.6),
+                inset 0 2px 0 rgba(255,255,255,0.2);
+        }
+
+        .download-btn svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        /* Tribal Pattern Divider */
+        .tribal-divider {
+            height: 40px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--primary-orange) 0px,
+                var(--tribal-brown) 20px,
+                var(--stone-gray) 40px,
+                var(--tribal-brown) 60px
+            );
+            position: relative;
+            opacity: 0.8;
+        }
+
+        .tribal-divider::after {
+            content: '⚔️';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: var(--savanna-gold);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Gift Codes Section */
+        .gift-section {
+            padding: 50px 40px 80px;
+            background-image: url('picture/2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .gift-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.4) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .gift-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(230, 126, 34, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(243, 156, 18, 0.1) 0%, transparent 20%);
+            pointer-events: none;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 48px;
+            text-align: center;
+            color: var(--savanna-gold);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,1), 0 0 20px rgba(243, 156, 18, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: var(--bone-white);
+            margin-bottom: 60px;
+            opacity: 1;
+            text-shadow: 2px 2px 6px rgba(0,0,0,1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .gift-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gift-card {
+            background: linear-gradient(145deg, rgba(93, 64, 55, 0.85), rgba(61, 42, 36, 0.92));
+            border: 2px solid var(--primary-orange);
+            border-radius: 16px;
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.4),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .gift-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(230, 126, 34, 0.1) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .gift-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 20px 40px rgba(230, 126, 34, 0.3),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+
+        .gift-code {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--savanna-gold);
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            position: relative;
+            z-index: 1;
+        }
+
+        .copy-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--blood-red), #a93226);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .copy-btn:hover {
+            background: linear-gradient(135deg, #e74c3c, var(--blood-red));
+            transform: scale(1.02);
+        }
+
+        .copy-btn.copied {
+            background: linear-gradient(135deg, #27ae60, #229954);
+        }
+
+        .gift-items {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gift-items li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+        }
+
+        .gift-items li:last-child {
+            border-bottom: none;
+        }
+
+        .gift-items li::before {
+            content: '⚔️';
+            font-size: 18px;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 100px 50px;
+            background-image: url('picture/4.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .features-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.7) 100%);
+            pointer-events: none;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid var(--primary-orange);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+        }
+
+        .feature-card:hover {
+            border-color: var(--savanna-gold);
+            background: rgba(0, 0, 0, 0.75);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            color: var(--savanna-gold);
+            margin-bottom: 15px;
+        }
+
+        .feature-desc {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(245, 245, 220, 0.8);
+        }
+
+        /* Footer */
+        footer {
+            background: #0d0704;
+            padding: 60px 50px 30px;
+            text-align: center;
+            border-top: 3px solid var(--tribal-brown);
+        }
+
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 36px;
+            color: var(--savanna-gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--bone-white);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary-orange);
+        }
+
+        .copyright {
+            color: rgba(245, 245, 220, 0.5);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            /* Navigation */
+            nav {
+                padding: 8px 15px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .lang-text {
+                font-size: 12px;
+            }
+
+            /* Hero section */
+            .hero {
+                padding: 70px 15px 40px;
+            }
+
+            .hero-main {
+                flex-direction: column-reverse;
+                gap: 20px;
+            }
+
+            .hero-left {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .hero-right {
+                flex: 0 0 auto;
+                width: 100%;
+                min-width: auto;
+                max-width: 100%;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .hero-right h1,
+            .hero-right .hero-subtitle {
+                text-align: center;
+            }
+
+            .hero-right .download-btn {
+                align-self: center;
+                margin: 0 auto;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+                letter-spacing: 1px;
+                line-height: 1.2;
+            }
+
+            .hero-subtitle {
+                font-size: 12px;
+                letter-spacing: 0.5px;
+            }
+
+            .download-btn {
+                padding: 10px 20px;
+                font-size: 12px;
+            }
+
+            .download-btn svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .hero-videos video {
+                width: 100%;
+                max-width: 100%;
+                aspect-ratio: 16 / 9;
+            }
+
+            /* Section titles */
+            .section-title {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .section-subtitle {
+                font-size: 12px;
+                margin-bottom: 30px;
+            }
+
+            /* Gallery - always 2 columns side by side */
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                padding: 0 5px;
+            }
+
+            /* Gift codes - always 4 columns side by side */
+            .gift-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 8px;
+                padding: 0 5px;
+            }
+
+            /* Gift card */
+            .gift-code {
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+
+            .copy-btn {
+                padding: 8px;
+                font-size: 10px;
+                margin-bottom: 10px;
+            }
+
+            .gift-items li {
+                font-size: 10px;
+                padding: 4px 0;
+            }
+
+            .gift-card {
+                padding: 12px;
+                border-radius: 8px;
+            }
+
+            /* Features - always 2 columns side by side */
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                padding: 0 5px;
+            }
+
+            .feature-icon {
+                font-size: 30px;
+                margin-bottom: 10px;
+            }
+
+            .feature-title {
+                font-size: 14px;
+                margin-bottom: 8px;
+            }
+
+            .feature-desc {
+                font-size: 11px;
+                line-height: 1.4;
+            }
+
+            .feature-card {
+                padding: 20px;
+                border-radius: 10px;
+            }
+
+            /* Section paddings */
+            .gift-section,
+            .features-section,
+            .gallery-section {
+                padding: 40px 15px;
+            }
+
+            /* Footer */
+            .footer-logo {
+                font-size: 24px;
+                margin-bottom: 15px;
+            }
+
+            .footer-links {
+                gap: 15px;
+            }
+
+            .footer-links a {
+                font-size: 12px;
+            }
+
+            .copyright {
+                font-size: 10px;
+            }
+
+            /* Tribal divider */
+            .tribal-divider {
+                height: 30px;
+            }
+        }
+
+        /* Tablet layout */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            /* Navigation */
+            nav {
+                padding: 10px 30px;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+            }
+
+            /* Hero */
+            .hero {
+                padding: 70px 30px 50px;
+            }
+
+            .hero-main {
+                gap: 40px;
+                max-width: 1200px;
+            }
+
+            .hero-left {
+                max-width: 58%;
+            }
+
+            .hero-right {
+                min-width: 280px;
+                max-width: 380px;
+                padding: 25px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+                letter-spacing: 2px;
+            }
+
+            .hero-subtitle {
+                font-size: 14px;
+            }
+
+            .download-btn {
+                padding: 12px 25px;
+                font-size: 14px;
+            }
+
+            .download-btn svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            /* Sections */
+            .section-title {
+                font-size: 32px;
+            }
+
+            .section-subtitle {
+                font-size: 16px;
+            }
+
+            /* Gallery */
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                max-width: 1200px;
+            }
+
+            /* Gift codes */
+            .gift-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 15px;
+                max-width: 1300px;
+            }
+
+            .gift-code {
+                font-size: 20px;
+            }
+
+            .copy-btn {
+                font-size: 12px;
+            }
+
+            .gift-items li {
+                font-size: 12px;
+            }
+
+            /* Features */
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+                max-width: 1000px;
+            }
+
+            .feature-icon {
+                font-size: 45px;
+            }
+
+            .feature-title {
+                font-size: 18px;
+            }
+
+            .feature-desc {
+                font-size: 14px;
+            }
+
+            /* Section paddings */
+            .gift-section,
+            .features-section,
+            .gallery-section {
+                padding: 60px 30px;
+            }
+
+            /* Footer */
+            .footer-logo {
+                font-size: 30px;
+            }
+
+            .footer-links a {
+                font-size: 14px;
+            }
+
+            .copyright {
+                font-size: 12px;
+            }
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Language Switcher */
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0,0,0,0.6);
+            border: 2px solid var(--primary-orange);
+            border-radius: 25px;
+            padding: 5px 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .lang-switch:hover {
+            background: rgba(230, 126, 34, 0.2);
+        }
+
+        .lang-icon {
+            font-size: 20px;
+        }
+
+        .lang-text {
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        /* Game Screenshots Gallery */
+        .gallery-section {
+            padding: 100px 50px;
+            background-image: url('picture/3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .gallery-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.7) 100%);
+            pointer-events: none;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            transition: all 0.3s;
+            border: 2px solid rgba(243, 156, 18, 0.2);
+            position: relative;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #3d2817 0%, #2c1810 100%);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            border-color: var(--primary-orange);
+            box-shadow: 0 20px 40px rgba(230, 126, 34, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Hero with background image - using local file */
+        .hero {
+            background-image: url('picture/5.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        /* Download section - using picture/5.jpg */
+        #download.hero {
+            background-image: url('picture/5.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        /* Remove gray overlay from hero section */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: none;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">⚔️ BRUTAL AGE</div>
+        <div class="nav-links">
+            <a href="#home" data-en="Home" data-zh="首页">Home</a>
+            <a href="#gifts" data-en="Gift Codes" data-zh="礼包码">Gift Codes</a>
+            <a href="#gallery" data-en="Gallery" data-zh="游戏截图">Gallery</a>
+            <a href="#features" data-en="Features" data-zh="游戏特色">Features</a>
+            <a href="#download" data-en="Download" data-zh="下载">Download</a>
+        </div>
+        <div class="lang-switch" onclick="toggleLanguage()">
+            <span class="lang-icon">🌐</span>
+            <span class="lang-text" id="langText">EN</span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-main">
+            <!-- Left side - Videos -->
+            <div class="hero-left">
+                <div class="hero-videos">
+                    <video id="promoVideo1" autoplay muted loop playsinline controls>
+                        <source src="picture/S034.mp4" type="video/mp4">
+                        <p data-en="Your browser does not support the video tag." data-zh="您的浏览器不支持视频播放。">Your browser does not support the video tag.</p>
+                    </video>
+                    <video id="promoVideo2" autoplay muted loop playsinline controls>
+                        <source src="picture/006.mp4" type="video/mp4">
+                        <p data-en="Your browser does not support the video tag." data-zh="您的浏览器不支持视频播放。">Your browser does not support the video tag.</p>
+                    </video>
+                </div>
+            </div>
+
+            <!-- Right side - Content -->
+            <div class="hero-right hero-content">
+                <img src="picture/logo_en.png" alt="BRUTAL AGE" style="width: 100%; max-width: 280px; margin-bottom: 20px;">
+                <p class="hero-subtitle" data-en="Build Your Tribe. Conquer the World." data-zh="建立部落，征服世界">Build Your Tribe. Conquer the World.</p>
+                <a href="https://gamehub.onelink.me/jARq/ydvjh9v9?c=B5ra77b1" class="download-btn" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.21-1.96 1.07-3.11-1.05.05-2.31.72-3.06 1.64-.68.84-1.26 2.01-1.1 3.14 1.18.09 2.38-.75 3.09-1.67z"/>
+                    </svg>
+                    <span data-en="App Store" data-zh="App Store">App Store</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tribal Divider -->
+    <div class="tribal-divider"></div>
+
+    <!-- Gift Codes Section -->
+    <section class="gift-section" id="gifts">
+        <h2 class="section-title" data-en="🎁 EXCLUSIVE GIFT CODES" data-zh="🎁 独家礼包码">🎁 EXCLUSIVE GIFT CODES</h2>
+        <p class="section-subtitle" data-en="Redeem these codes in-game for amazing rewards!" data-zh="在游戏中兑换这些码获取丰厚奖励！">Redeem these codes in-game for amazing rewards!</p>
+
+        <div class="gift-grid">
+            <!-- Gift Card 1 -->
+            <div class="gift-card fade-in">
+                <div class="gift-code">Newbie888</div>
+                <button class="copy-btn" onclick="copyCode(this, 'Newbie888')" data-en="Copy Code" data-zh="复制代码">Copy Code</button>
+                <ul class="gift-items">
+                    <li data-en="100 Gems ×3" data-zh="100 宝石 ×3">100 Gems ×3</li>
+                    <li data-en="10,000 Wood ×10" data-zh="10,000 木头 ×10">10,000 Wood ×10</li>
+                    <li data-en="10,000 Stone ×10" data-zh="10,000 石头 ×10">10,000 Stone ×10</li>
+                    <li data-en="10,000 Ivory ×10" data-zh="10,000 象牙 ×10">10,000 Ivory ×10</li>
+                    <li data-en="30,000 Meat ×10" data-zh="30,000 肉类 ×10">30,000 Meat ×10</li>
+                    <li data-en="1 Min Speedup ×30" data-zh="1 分钟加速 ×30">1 Min Speedup ×30</li>
+                    <li data-en="15 Min Speedup ×10" data-zh="15 分钟加速 ×10">15 Min Speedup ×10</li>
+                    <li data-en="1 Hour Speedup ×5" data-zh="1 小时加速 ×5">1 Hour Speedup ×5</li>
+                </ul>
+            </div>
+
+            <!-- Gift Card 2 -->
+            <div class="gift-card fade-in">
+                <div class="gift-code">BAGIFT2026</div>
+                <button class="copy-btn" onclick="copyCode(this, 'BAGIFT2026')" data-en="Copy Code" data-zh="复制代码">Copy Code</button>
+                <ul class="gift-items">
+                    <li data-en="Golden Tortoise ×1" data-zh="黄金神龟 ×1">Golden Tortoise ×1</li>
+                    <li data-en="100 Gems ×2" data-zh="100 宝石 ×2">100 Gems ×2</li>
+                    <li data-en="10,000 Wood ×5" data-zh="10,000 木头 ×5">10,000 Wood ×5</li>
+                    <li data-en="10,000 Stone ×5" data-zh="10,000 石头 ×5">10,000 Stone ×5</li>
+                    <li data-en="10,000 Ivory ×5" data-zh="10,000 象牙 ×5">10,000 Ivory ×5</li>
+                    <li data-en="30,000 Meat ×5" data-zh="30,000 肉类 ×5">30,000 Meat ×5</li>
+                    <li data-en="15 Min Speedup ×5" data-zh="15 分钟加速 ×5">15 Min Speedup ×5</li>
+                    <li data-en="1 Hour Speedup ×2" data-zh="1 小时加速 ×2">1 Hour Speedup ×2</li>
+                </ul>
+            </div>
+
+            <!-- Gift Card 3 -->
+            <div class="gift-card fade-in">
+                <div class="gift-code">VIP999</div>
+                <button class="copy-btn" onclick="copyCode(this, 'VIP999')" data-en="Copy Code" data-zh="复制代码">Copy Code</button>
+                <ul class="gift-items">
+                    <li data-en="100 Gems ×3" data-zh="100 宝石 ×3">100 Gems ×3</li>
+                    <li data-en="Resource Choice Chest ×1" data-zh="资源自选宝箱 ×1">Resource Choice Chest ×1</li>
+                    <li data-en="Time Chest ×1" data-zh="时光宝箱 ×1">Time Chest ×1</li>
+                </ul>
+            </div>
+
+            <!-- Gift Card 4 -->
+            <div class="gift-card fade-in">
+                <div class="gift-code">HERO888</div>
+                <button class="copy-btn" onclick="copyCode(this, 'HERO888')" data-en="Copy Code" data-zh="复制代码">Copy Code</button>
+                <ul class="gift-items">
+                    <li data-en="Sweep Tickets ×5" data-zh="扫荡券 ×5">Sweep Tickets ×5</li>
+                    <li data-en="100 Gems ×2" data-zh="100 宝石 ×2">100 Gems ×2</li>
+                    <li data-en="10,000 Wood ×5" data-zh="10,000 木头 ×5">10,000 Wood ×5</li>
+                    <li data-en="10,000 Stone ×5" data-zh="10,000 石头 ×5">10,000 Stone ×5</li>
+                    <li data-en="10,000 Ivory ×5" data-zh="10,000 象牙 ×5">10,000 Ivory ×5</li>
+                    <li data-en="30,000 Meat ×5" data-zh="30,000 肉类 ×5">30,000 Meat ×5</li>
+                    <li data-en="1 Min Speedup ×10" data-zh="1 分钟加速 ×10">1 Min Speedup ×10</li>
+                    <li data-en="15 Min Speedup ×4" data-zh="15 分钟加速 ×4">15 Min Speedup ×4</li>
+                    <li data-en="1 Hour Speedup ×1" data-zh="1 小时加速 ×1">1 Hour Speedup ×1</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <div class="tribal-divider"></div>
+
+    <section class="gallery-section" id="gallery">
+        <h2 class="section-title" data-en="🖼️ GAME SCREENSHOTS" data-zh="🖼️ 游戏截图">🖼️ GAME SCREENSHOTS</h2>
+        <p class="section-subtitle" data-en="Explore the brutal world of the game" data-zh="探索野蛮时代的游戏世界">Explore the brutal world of the game</p>
+
+        <div class="gallery-grid">
+            <div class="gallery-item fade-in">
+                <img src="picture/2.jpg" alt="Brutal Age Screenshot 1 - Tribal Village">
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="picture/3.jpg" alt="Brutal Age Screenshot 2 - Epic Battle">
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="picture/4.jpg" alt="Brutal Age Screenshot 3 - Beast Taming">
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="picture/6.jpg" alt="Brutal Age Screenshot 4 - Alliance">
+            </div>
+            <div class="gallery-item fade-in" style="padding: 0;">
+                <video id="galleryVideo1" autoplay muted loop playsinline controls style="width: 100%; height: 100%; border-radius: 12px; object-fit: cover; filter: none;">
+                    <source src="picture/S034.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="gallery-item fade-in" style="padding: 0;">
+                <video id="galleryVideo2" autoplay muted loop playsinline controls style="width: 100%; height: 100%; border-radius: 12px; object-fit: cover; filter: none;">
+                    <source src="picture/006.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tribal Divider -->
+    <div class="tribal-divider"></div>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <h2 class="section-title" data-en="⚔️ GAME FEATURES" data-zh="⚔️ 游戏特色">⚔️ GAME FEATURES</h2>
+        <p class="section-subtitle" data-en="Experience the ultimate tribal warfare" data-zh体验极致的部落战争">Experience the ultimate tribal warfare</p>
+
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🏰</div>
+                <h3 class="feature-title" data-en="Build Your Empire" data-zh="建立帝国">Build Your Empire</h3>
+                <p class="feature-desc" data-en="Construct and upgrade your village, train powerful troops, and expand your territory across the prehistoric world." data-zh="建设和升级你的村庄，训练强大的军队，在史前世界中扩张领土。">Construct and upgrade your village, train powerful troops, and expand your territory across the prehistoric world.</p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🦖</div>
+                <h3 class="feature-title" data-en="Tame Mighty Beasts" data-zh="驯服猛兽">Tame Mighty Beasts</h3>
+                <p class="feature-desc" data-en="Capture and train legendary creatures to fight alongside your warriors. Each beast has unique abilities and strengths." data-zh="捕捉并训练传奇生物与你的战士并肩作战。每只野兽都有独特的能力和力量。">Capture and train legendary creatures to fight alongside your warriors. Each beast has unique abilities and strengths.</p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">⚔️</div>
+                <h3 class="feature-title" data-en="Epic Battles" data-zh="史诗战斗">Epic Battles</h3>
+                <p class="feature-desc" data-en="Engage in massive real-time battles with players from around the world. Form alliances and conquer together." data-zh="与来自世界各地的玩家进行大规模实时战斗。组建联盟，共同征服世界。">Engage in massive real-time battles with players from around the world. Form alliances and conquer together.</p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">👥</div>
+                <h3 class="feature-title" data-en="Alliance Warfare" data-zh="联盟战争">Alliance Warfare</h3>
+                <p class="feature-desc" data-en="Join forces with other chieftains, coordinate attacks, and participate in alliance events for exclusive rewards." data-zh="与其他酋长联手，协调攻击，参与联盟活动获取独家奖励。">Join forces with other chieftains, coordinate attacks, and participate in alliance events for exclusive rewards.</p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🎨</div>
+                <h3 class="feature-title" data-en="Stunning Graphics" data-zh="精美画面">Stunning Graphics</h3>
+                <p class="feature-desc" data-en="Immerse yourself in a beautifully crafted prehistoric world with detailed environments and character designs." data-zh="沉浸在一个精心打造的史前世界，拥有详细的环境和角色设计。">Immerse yourself in a beautifully crafted prehistoric world with detailed environments and character designs.</p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🏆</div>
+                <h3 class="feature-title" data-en="Global Competition" data-zh="全球竞技">Global Competition</h3>
+                <p class="feature-desc" data-en="Climb the leaderboards, compete in seasonal events, and prove you're the ultimate tribal chief." data-zh="登上排行榜，参加赛季活动，证明你是最强的部落酋长。">Climb the leaderboards, compete in seasonal events, and prove you're the ultimate tribal chief.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download CTA -->
+    <section class="hero" id="download" style="height: 60vh;">
+        <div class="hero-content">
+            <h2 style="font-size: 48px; margin-bottom: 20px;" data-en="START YOUR ADVENTURE" data-zh="开始你的冒险">START YOUR ADVENTURE</h2>
+            <p class="hero-subtitle" data-en="Download now and claim your exclusive rewards!" data-zh="立即下载，领取你的独家奖励！">Download now and claim your exclusive rewards!</p>
+            <a href="https://gamehub.onelink.me/jARq/ydvjh9v9?c=B5ra77b1" class="download-btn" target="_blank" style="margin-top: 20px;">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.21-1.96 1.07-3.11-1.05.05-2.31.72-3.06 1.64-.68.84-1.26 2.01-1.1 3.14 1.18.09 2.38-.75 3.09-1.67z"/>
+                </svg>
+                <span data-en="Get It On App Store" data-zh="在 App Store 获取">Get It On App Store</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">⚔️ BRUTAL AGE</div>
+        <div class="footer-links">
+            <a href="#" data-en="Privacy Policy" data-zh="隐私政策">Privacy Policy</a>
+            <a href="#" data-en="Terms of Service" data-zh="服务条款">Terms of Service</a>
+            <a href="#" data-en="Support" data-zh="支持">Support</a>
+            <a href="#" data-en="Community" data-zh="社区">Community</a>
+        </div>
+        <p class="copyright" data-en="© 2026 Brutal Age. All rights reserved. | This is a fan-made promotional page." data-zh="© 2026 Brutal Age. 保留所有权利. | 这是一个粉丝制作的宣传页面.">© 2026 Brutal Age. All rights reserved. | This is a fan-made promotional page.</p>
+    </footer>
+
+    <script>
+        // Language switching
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'zh' : 'en';
+            updateLanguage();
+        }
+
+        function updateLanguage() {
+            // Update language toggle button
+            const langText = document.getElementById('langText');
+            langText.textContent = currentLang === 'en' ? 'EN' : '中';
+
+            // Update all elements with data-en and data-zh attributes
+            const elements = document.querySelectorAll('[data-en][data-zh]');
+            elements.forEach(el => {
+                el.textContent = el.getAttribute(`data-${currentLang}`);
+            });
+        }
+
+        // Copy code functionality
+        function copyCode(btn, code) {
+            navigator.clipboard.writeText(code).then(() => {
+                btn.textContent = currentLang === 'en' ? 'Copied!' : '已复制！';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = currentLang === 'en' ? 'Copy Code' : '复制代码';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        // Video autoplay - ensures muted autoplay plays automatically
+        const video1 = document.getElementById('promoVideo1');
+        const video2 = document.getElementById('promoVideo2');
+        const galleryVideo1 = document.getElementById('galleryVideo1');
+        const galleryVideo2 = document.getElementById('galleryVideo2');
+
+        function setupVideoAutoplay(videoElement) {
+            if (!videoElement) return;
+
+            // Force muted state and ensure autoplay attribute
+            videoElement.muted = true;
+            videoElement.volume = 0;
+            videoElement.autoplay = true;
+
+            // Force play function
+            function forcePlay() {
+                videoElement.muted = true;
+                videoElement.volume = 0;
+                const playPromise = videoElement.play();
+
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        console.log('Video started playing');
+                    }).catch(error => {
+                        console.log('Autoplay failed:', error);
+                    });
+                }
+            }
+
+            // Try multiple times
+            forcePlay();
+
+            // On window load
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    if (videoElement.paused) {
+                        forcePlay();
+                    }
+                }, 500);
+            });
+
+            // On canplay event
+            videoElement.addEventListener('canplay', () => {
+                if (videoElement.paused) {
+                    forcePlay();
+                }
+            });
+
+            // On loadeddata event
+            videoElement.addEventListener('loadeddata', () => {
+                if (videoElement.paused) {
+                    forcePlay();
+                }
+            });
+        }
+
+        setupVideoAutoplay(video1);
+        setupVideoAutoplay(video2);
+        setupVideoAutoplay(galleryVideo1);
+        setupVideoAutoplay(galleryVideo2);
+
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
