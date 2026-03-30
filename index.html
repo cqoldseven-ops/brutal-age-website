@@ -75,13 +75,18 @@
 
         /* Hero Section */
         .hero {
-            min-height: auto;
+            min-height: 70vh;
             padding: 70px 15px 60px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
+        }
+
+        .hero#download {
+            height: 60vh;
+            min-height: 60vh;
         }
 
         .hero-content {
@@ -158,6 +163,7 @@
             aspect-ratio: 16 / 9;
             border: 2px solid rgba(243, 156, 18, 0.3);
             filter: none;
+            background: #000;
         }
 
         .hero h1 {
@@ -974,13 +980,13 @@
             <!-- Left side - Videos -->
             <div class="hero-left">
                 <div class="hero-videos">
-                    <video id="promoVideo1" autoplay muted loop playsinline controls>
+                    <video id="promoVideo1" autoplay muted loop playsinline controls preload="auto">
                         <source src="S034.mp4" type="video/mp4">
                         <p data-en="Your browser does not support the video tag." data-zh="您的浏览器不支持视频播放。">Your browser does not support the video tag.</p>
                     </video>
-                    <video id="promoVideo2" autoplay muted loop playsinline controls>
+                    <video id="promoVideo2" autoplay muted loop playsinline controls preload="auto">
                         <source src="006.mp4" type="video/mp4">
-                        <p data-en="Your browser does not support the video tag." data-zh="您的浏览器不支持视频播放。">Your browser does not support the video tag.</p>
+                        <p data-en="Your browser does not support the video tag." data-zh="您的浏览器不支持视频播放。">Your browser does not支持视频播放。</p>
                     </video>
                 </div>
             </div>
@@ -1090,16 +1096,7 @@
             <div class="gallery-item fade-in">
                 <img src="6.jpg" alt="Brutal Age Screenshot 4 - Alliance">
             </div>
-            <div class="gallery-item fade-in" style="padding: 0;">
-                <video id="galleryVideo1" autoplay muted loop playsinline controls style="width: 100%; height: 100%; border-radius: 12px; object-fit: cover; filter: none;">
-                    <source src="S034.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="gallery-item fade-in" style="padding: 0;">
-                <video id="galleryVideo2" autoplay muted loop playsinline controls style="width: 100%; height: 100%; border-radius: 12px; object-fit: cover; filter: none;">
-                    <source src="006.mp4" type="video/mp4">
-                </video>
-            </div>
+
         </div>
     </section>
 
@@ -1147,20 +1144,6 @@
                 <h3 class="feature-title" data-en="Global Competition" data-zh="全球竞技">Global Competition</h3>
                 <p class="feature-desc" data-en="Climb the leaderboards, compete in seasonal events, and prove you're the ultimate tribal chief." data-zh="登上排行榜，参加赛季活动，证明你是最强的部落酋长。">Climb the leaderboards, compete in seasonal events, and prove you're the ultimate tribal chief.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Download CTA -->
-    <section class="hero" id="download" style="height: 60vh;">
-        <div class="hero-content">
-            <h2 style="font-size: 48px; margin-bottom: 20px;" data-en="START YOUR ADVENTURE" data-zh="开始你的冒险">START YOUR ADVENTURE</h2>
-            <p class="hero-subtitle" data-en="Download now and claim your exclusive rewards!" data-zh="立即下载，领取你的独家奖励！">Download now and claim your exclusive rewards!</p>
-            <a href="https://gamehub.onelink.me/jARq/ydvjh9v9?c=B5ra77b1" class="download-btn" target="_blank" style="margin-top: 20px;">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.21-1.96 1.07-3.11-1.05.05-2.31.72-3.06 1.64-.68.84-1.26 2.01-1.1 3.14 1.18.09 2.38-.75 3.09-1.67z"/>
-                </svg>
-                <span data-en="Get It On App Store" data-zh="在 App Store 获取">Get It On App Store</span>
-            </a>
         </div>
     </section>
 
@@ -1212,8 +1195,6 @@
         // Video autoplay - ensures muted autoplay plays automatically
         const video1 = document.getElementById('promoVideo1');
         const video2 = document.getElementById('promoVideo2');
-        const galleryVideo1 = document.getElementById('galleryVideo1');
-        const galleryVideo2 = document.getElementById('galleryVideo2');
 
         function setupVideoAutoplay(videoElement) {
             if (!videoElement) return;
@@ -1222,6 +1203,7 @@
             videoElement.muted = true;
             videoElement.volume = 0;
             videoElement.autoplay = true;
+            videoElement.crossOrigin = 'anonymous';
 
             // Force play function
             function forcePlay() {
@@ -1234,11 +1216,13 @@
                         console.log('Video started playing');
                     }).catch(error => {
                         console.log('Autoplay failed:', error);
+                        // Retry after a short delay
+                        setTimeout(forcePlay, 1000);
                     });
                 }
             }
 
-            // Try multiple times
+            // Try multiple times with delays
             forcePlay();
 
             // On window load
@@ -1263,12 +1247,15 @@
                     forcePlay();
                 }
             });
+
+            // On error event
+            videoElement.addEventListener('error', () => {
+                console.log('Video error:', videoElement.error);
+            });
         }
 
         setupVideoAutoplay(video1);
         setupVideoAutoplay(video2);
-        setupVideoAutoplay(galleryVideo1);
-        setupVideoAutoplay(galleryVideo2);
 
         // Scroll animation
         const observerOptions = {
